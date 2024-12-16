@@ -24,8 +24,9 @@ dockers:
     use: buildx
     dockerfile: 'Dockerfile.goreleaser'
     image_templates:
-      - "mehmettokgoz/goreleaser-test:latest-amd64"
-      - "mehmettokgoz/goreleaser-test:{{ .Tag }}-amd64"
+      - "tokgoz/goreleaser-test:latest-amd64"
+      - "tokgoz/goreleaser-test:latest-amd64"
+      - "tokgoz/goreleaser-test:{{ .Tag }}-amd64"
     build_flag_templates:
       - "--pull"
       - "--label=org.opencontainers.image.created={{.Date}}"
@@ -40,8 +41,8 @@ dockers:
     use: buildx
     dockerfile: 'Dockerfile.goreleaser'
     image_templates:
-      - "mehmettokgoz/goreleaser-test:latest-arm64v8"
-      - "mehmettokgoz/goreleaser-test:{{ .Tag }}-arm64v8"
+      - "tokgoz/goreleaser-test:latest-arm64v8"
+      - "tokgoz/goreleaser-test:{{ .Tag }}-arm64v8"
     build_flag_templates:
       - "--pull"
       - "--label=org.opencontainers.image.created={{.Date}}"
@@ -50,14 +51,15 @@ dockers:
       - "--label=org.opencontainers.image.version={{.Version}}"
       - "--platform=linux/arm64"
 docker_manifests:
-  - name_template: mehmettokgoz/goreleaser-test:latest
+  - name_template: tokgoz/goreleaser-test:latest
+  - name_template: tokgoz/goreleaser-test:latest
     image_templates:
-      - mehmettokgoz/goreleaser-test:latest-amd64
-      - mehmettokgoz/goreleaser-test:latest-arm64v8
-  - name_template: mehmettokgoz/goreleaser-test:{{ .Tag }}
+      - tokgoz/goreleaser-test:latest-amd64
+      - tokgoz/goreleaser-test:latest-arm64v8
+  - name_template: tokgoz/goreleaser-test:{{ .Tag }}
     image_templates:
-      - mehmettokgoz/goreleaser-test:{{ .Tag }}-amd64
-      - mehmettokgoz/goreleaser-test:{{ .Tag }}-arm64v8
+      - tokgoz/goreleaser-test:{{ .Tag }}-amd64
+      - tokgoz/goreleaser-test:{{ .Tag }}-arm64v8
 
 
 archives:
