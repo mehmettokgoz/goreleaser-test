@@ -1,3 +1,4 @@
-FROM scratch
-COPY . /main
-ENTRYPOINT ["/main"]
+FROM --platform=$BUILDPLATFORM debian:stable-slim AS build
+RUN apt-get update && apt-get install -y ca-certificates tzdata && update-ca-certificates
+COPY test /bin/test
+CMD ["test"]
