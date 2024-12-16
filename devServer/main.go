@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	fmt.Printf("Starting production server...")
+	fmt.Printf("Starting development server...")
 	service := cmd.NewService()
 	service.Start()
 	exit := make(chan os.Signal, 1)
