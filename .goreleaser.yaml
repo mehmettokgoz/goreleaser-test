@@ -6,8 +6,6 @@ before:
     - go generate ./...
 
 builds:
-  - main: ./
-  - binary: test
   - env:
       - CGO_ENABLED=0
     goos:
