@@ -67,6 +67,13 @@ archives:
       - goos: windows
         format: zip
 
+blobs:
+  - provider: s3
+    region: eu-west-1
+    disable_ssl: true
+    bucket: goreleaser-test
+    directory: "versions/{{.Version}}"
+
 changelog:
   sort: asc
   filters:
