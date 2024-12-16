@@ -7,15 +7,15 @@ before:
 
 builds:
   - main: ./devServer
-  - env:
+    env:
       - CGO_ENABLED=0
     goos:
-      - linux
-      - windows
-      - darwin
+        - linux
+        - windows
+        - darwin
     goarch:
-      - amd64
-      - arm64
+        - amd64
+        - arm64
 
 dockers:
   - id: goreleaser-test-amd64
